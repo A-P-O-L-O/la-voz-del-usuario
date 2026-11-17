@@ -2,7 +2,7 @@
 
 Proyecto Integrador · Inteligencia Artificial Avanzada · Momento 3 · **Ruta A · Reto A1**
 
-**Repositorio:** https://github.com/A-P-O-L-O/la-voz-del-usuario · **Informe:** [docs/informe_ieee/informe_ieee.pdf](docs/informe_ieee/informe_ieee.pdf)
+**Repositorio:** https://github.com/A-P-O-L-O/la-voz-del-usuario · **Informe:** [docs/informe_ieee/informe_ieee.pdf](docs/informe_ieee/informe_ieee.pdf) · **Diapositivas:** [docs/diapositivas.pptx](docs/diapositivas.pptx)
 
 ## Problema
 Las apps bancarias más usadas en Colombia (Nequi, Daviplata, Bancolombia) reciben miles de reseñas al mes en
