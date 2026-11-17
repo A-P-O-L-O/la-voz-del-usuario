@@ -1,0 +1,13 @@
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+
+# Modelos pesados (BETO pesa ~440 MB): se regeneran con el notebook
+models/beto_checkpoints/
+models/beto_sentimiento/
+
+# Datos crudos: se descargan con el notebook. Se versionan los procesados pequeños,
+# el conjunto de oro etiquetado y los metadatos de descarga.
+data/raw/resenas_raw.csv

@@ -1,0 +1,5 @@
+Modelo,F1-macro ORO (principal),Recall negativa ORO,Exactitud ORO,F1-macro test débil
+pysentimiento (sin ajuste),0.74,0.946,0.87,0.535
+BETO ajuste fino,0.651,0.799,0.833,0.628
+BiLSTM,0.613,0.783,0.81,0.609
+TF-IDF + RegLog (línea base),0.606,0.815,0.833,0.62

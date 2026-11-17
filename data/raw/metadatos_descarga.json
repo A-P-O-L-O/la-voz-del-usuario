@@ -1,0 +1,12 @@
+{
+  "fecha_descarga_utc": "2026-11-17T00:00:43.497454+00:00",
+  "fuente": "Google Play Store vía google-play-scraper",
+  "lang": "es",
+  "country": "co",
+  "apps": {
+    "Nequi": "com.nequi.MobileApp",
+    "Daviplata": "com.davivienda.daviplataapp",
+    "Bancolombia": "com.todo1.mobile"
+  },
+  "resenas_por_app": 5000
+}

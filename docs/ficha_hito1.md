@@ -1,0 +1,14 @@
+# Ficha del pipeline · Hito 1 (Clase 17 · Taller 15)
+
+| Campo | Respuesta |
+|---|---|
+| **Integrantes y ruta** | Elias Jaramillo · **Ruta A** |
+| **Reto del catálogo o tema libre** | **A1 · La voz del usuario: opiniones sobre un servicio** |
+| **Problema y dueño (con un número)** | Las apps bancarias Nequi, Daviplata y Bancolombia reciben **miles de reseñas al mes** en Google Play _(poner el número real que salga del EDA, p. ej. "~X reseñas/mes entre las 3")_. Los equipos de producto y servicio al cliente no las leen todas, así que no saben de qué se quejan los usuarios ni si las quejas bajan después de cada actualización. **Dueño:** el área de experiencia de cliente / producto digital de cada banco. |
+| **Datos: fuente, enlace, tamaño y licencia** | Reseñas públicas de Google Play descargadas con `google-play-scraper` (https://pypi.org/project/google-play-scraper/), `lang='es'`, `country='co'`. **15.000 reseñas** (5.000 por app). Fecha de descarga: _[dd/mm/aaaa]_. Uso académico, no comercial, sujeto a los términos de Google Play. Etiqueta débil por estrellas (1–2 neg., 3 neutra, 4–5 pos.) + **300 reseñas de evaluación** pre-etiquetadas por un modelo de lenguaje (sin ver las estrellas) y **revisadas a mano** por el autor en todos los casos dudosos. |
+| **Red profunda** | (1) **BiLSTM** con embeddings entrenados desde cero. (2) **Ajuste fino de BETO** (`dccuchile/bert-base-spanish-wwm-cased`). Referencia adicional: pysentimiento sin ajuste. |
+| **Componente NLP** | Clasificación de sentimiento (negativa / neutra / positiva) + **palabras clave con YAKE** de las reseñas negativas, por app y por mes, para identificar de qué se quejan los usuarios. |
+| **Línea base** | **TF-IDF (uni y bigramas) + regresión logística** con pesos de clase balanceados. |
+| **Métrica principal y por qué** | **F1-macro sobre las 300 reseñas de evaluación (etiqueta revisada por humano).** Las clases están desbalanceadas (la exactitud premiaría a un modelo que siempre dice "negativa") y F1-macro le da el mismo peso a la clase neutra, que es la más difícil. Se evalúa con etiquetas manuales y no con estrellas porque las estrellas no siempre coinciden con el texto. Métrica secundaria: recall de la clase negativa (no detectar una queja es el error más costoso para el dueño). |
+| **Riesgos éticos y cómo los manejarán** | (1) **Datos personales:** se eliminan nombres e imágenes de usuario, el id se reemplaza por un hash y se enmascaran correos y números largos en el texto (Ley 1581 de 2012). No se publican nombres. (2) **Sesgo de muestra:** en Google Play escriben más los usuarios muy satisfechos o muy molestos; se declara como límite. (3) **Uso indebido:** el modelo apoya el análisis, no decide sobre usuarios individuales. (4) Se declara el uso de IA generativa. |
+| **Aprobación del docente** | No aplica (reto del catálogo). |
